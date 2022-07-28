@@ -5,3 +5,6 @@ terraform apply    : Applies the configuration to the cloud
 terraform distroy  : Distroy the configuration made in cloud
 terraform refresh  : Refresh the configuration in tfstate file with the actual environment.
 terraform show     : Shows the content of tfstate file
+terraform output   : Prints the configured output results.
+terraform console  : It takes into the terraform command line.
+terraform fmt      : It makes the terraform code aligned and indented.
