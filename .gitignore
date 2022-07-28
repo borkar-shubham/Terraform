@@ -1,5 +1,6 @@
 *.vscode
 *.terraform*
 *.tfstate
+*.tfstate.backup
 terraform.tfvars
 .gitignore
