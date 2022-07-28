@@ -1,0 +1,7 @@
+terraform init     : 
+terraform plan     : Show the changes that will be made to the cloud after apply
+terraform validate : Check if the configurations made are proper or not
+terraform apply    : Applies the configuration to the cloud
+terraform distroy  : Distroy the configuration made in cloud
+terraform refresh  : Refresh the configuration in tfstate file with the actual environment.
+terraform show     : Shows the content of tfstate file
