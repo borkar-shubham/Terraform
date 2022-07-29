@@ -1,0 +1,3 @@
+variable "ports" {
+    type = "number";  
+}
