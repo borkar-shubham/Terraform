@@ -1,25 +1,25 @@
-variable "username" {   // variable types --> string, number, bool, object({ATTR NAME> = <TYPE>...}), list(string), list(object), set(type), map(type), tupple
-  type = string  
+variable "username" { // variable types --> string, number, bool, object({ATTR NAME> = <TYPE>...}), list(string), list(object), set(type), map(type), tupple
+  type = string
 }
 
 variable "age" {
-    type = number
-    default = 28
+  type    = number
+  default = 28
 }
 
 variable "fruits" {
-  type = list
+  type    = list(any)
   default = ["mango", "banana", "kiwi"]
 }
 
 variable "bool" {
-  type = bool
+  type        = bool
   description = "It's bool number"
   default     = false
 }
 
 variable "userage-map" {
-  type = map
+  type = map(any)
   default = {
     sachin = 25
     ritesh = 20
