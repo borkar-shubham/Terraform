@@ -1,6 +1,6 @@
 //creating ssh-key pair
-resource "aws_key_pair" "virginia-key-terraform" {
-  key_name   = "virginia-key-terraform"
+resource "aws_key_pair" "tf_key_pair" {
+  key_name   = var.key_pair_name
   public_key = file("${path.module}/id_rsa.pub")
 }
 

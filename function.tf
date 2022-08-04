@@ -9,4 +9,5 @@ output "printfile" {
 
 //lookup function:
 output "lookup" {
-    value = lookup("${}")
+    value = lookup("${ path.module}/<file-name>")
+}

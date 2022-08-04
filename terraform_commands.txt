@@ -1,4 +1,4 @@
-terraform init     : 
+terraform init     : It initiates a terraform plugin required by the infra code.
 terraform plan     : Show the changes that will be made to the cloud after apply
 terraform validate : Check if the configurations made are proper or not
 terraform apply    : Applies the configuration to the cloud
@@ -8,3 +8,9 @@ terraform show     : Shows the content of tfstate file
 terraform output   : Prints the configured output results.
 terraform console  : It takes into the terraform command line.
 terraform fmt      : It makes the terraform code aligned and indented.
+terraform workspace list : It show all the available workspaces.
+terraform workspace new <workspce-name> : It creates a new workspace and switched to it.
+terraform workspace show : It shows the current workspace.
+terraform workspace delete <workspace-name> : It deletes the current workspace other than the current.
+terraform taint <resource-type> <resource-name> : It marks the resource as a taint and replaces it in next apply instead of updating it.
+##terraform do not recomends the taint command, use "terraform apply --replace" instead
