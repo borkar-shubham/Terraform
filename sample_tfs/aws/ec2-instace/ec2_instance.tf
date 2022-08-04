@@ -51,6 +51,27 @@ resource "aws_instance" "application_server" {
   }
 }
 
+ //Provisioners are used to transfer the files from host machine to remote server.
+  # Provisioners can transfer files, local-exec, remote-exec
+  # provisioner "file" {
+  #   source = "file1.txt"  #from host machine
+  #   destination = "/tmp/file1.txt"  #to remote machine 
+  # }
+#   provisioner "local-exec" {
+#     command = "echo testing > /tmp/test.txt"
+#   }
+#   provisioner "local-exec" {
+#     working_dir = "/tmp"
+#     command = "echo ${self.public_ip}>myip.txt"
+#   }
+#   provisioner "local-exec" {
+#     command = "env>env.txt"
+#     environment = {
+#       envname = "envvalue"
+#     }
+#   }
+# }
+
 //terraform backend to store the tfstate file in remote storage for collaborative environment.
 //also avoid simultaneous tf apply with help of backed locking with dynamodb_table
 # terraform {
