@@ -63,6 +63,6 @@ resource "aws_eip" "tf_eip" {
   vpc = true
 }
 resource "aws_eip_association" "eip_assoc" {
-  instance_id   = aws_instance.application_server.id
+  instance_id   = aws_instance.server-1.id
   allocation_id = aws_eip.tf_eip.id
 }

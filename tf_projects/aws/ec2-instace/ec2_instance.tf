@@ -29,7 +29,7 @@ data "aws_ami" "ubuntu" {
   }
 }
 
-resource "aws_instance" "application_server" {
+resource "aws_instance" "server-1" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   key_name               = var.key_pair_name
@@ -37,7 +37,7 @@ resource "aws_instance" "application_server" {
   subnet_id              = aws_subnet.tf_vpc_pub_sub.id
   user_data              = file("${path.module}/user_data.sh")
   tags = {
-    Name      = "Application_Server"
+    Name      = var.instance_name
     Env       = "Testing"
     Provision = "Terraform"
   }
@@ -51,12 +51,12 @@ resource "aws_instance" "application_server" {
   }
 }
 
- //Provisioners are used to transfer the files from host machine to remote server.
-  # Provisioners can transfer files, local-exec, remote-exec
-  # provisioner "file" {
-  #   source = "file1.txt"  #from host machine
-  #   destination = "/tmp/file1.txt"  #to remote machine 
-  # }
+//Provisioners are used to transfer the files from host machine to remote server.
+# Provisioners can transfer files, local-exec, remote-exec
+# provisioner "file" {
+#   source = "file1.txt"  #from host machine
+#   destination = "/tmp/file1.txt"  #to remote machine 
+# }
 #   provisioner "local-exec" {
 #     command = "echo testing > /tmp/test.txt"
 #   }
