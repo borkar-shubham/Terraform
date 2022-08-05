@@ -1,14 +1,3 @@
-//VPC variables
-variable "vpc_cidr" {
-  type = string
-}
-variable "pub_sub_cidr" {
-  type = string
-}
-variable "pvt_sub_cidr" {
-  type = string
-}
-
 //Instance variables
 variable "instance_name" {
   type = string

@@ -1,8 +1,3 @@
-//VPC Stuff
-vpc_cidr     = "192.168.0.0/24"
-pub_sub_cidr = "192.168.0.0/25"
-pvt_sub_cidr = "192.168.0.128/25"
-
 instance_name = "docker-server"
 instance_type = "t2.micro"
 image_name    = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"
