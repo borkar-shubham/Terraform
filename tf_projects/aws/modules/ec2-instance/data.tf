@@ -18,3 +18,17 @@ data "aws_ami" "ubuntu" {
     values = ["x86_64"]
   }
 }
+
+data "aws_subnet" "public"{
+  filter {
+    nname = "tag:name"
+    values = ["(${var.vpc_name}).pub.sub"]
+  }
+}
+
+data "aws_subnet" "private"{
+  filter {
+    nname = "tag:name"
+    values = ["(${var.vpc_name}).pvt.sub"]
+  }
+}

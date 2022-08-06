@@ -8,10 +8,10 @@ resource "aws_security_group" "tf_vpc_sg" {
     for_each = var.ports
     iterator = port
     content {
-      description = "TLS from VPC"
+      description = "Allows given traffic from VPC"
       from_port   = port.value
       to_port     = port.value
-      protocol    = "tcp"
+      protocol    = "-1" #allows tcp, udp and other all protocols
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
@@ -21,5 +21,6 @@ resource "aws_security_group" "tf_vpc_sg" {
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
+    description = "Allows all traffic"
   }
 }

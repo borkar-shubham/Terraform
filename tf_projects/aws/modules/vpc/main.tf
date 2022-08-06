@@ -9,9 +9,6 @@ resource "aws_vpc" "tf_vpc" {
 }
 
 //Subnets
-resource "aws_internet_gateway" "my_ig" {
-  vpc_id = aws_vpc.tf_vpc.id
-}
 #Public Subnet
 resource "aws_subnet" "tf_vpc_pub_sub" {
   vpc_id                  = aws_vpc.tf_vpc.id
@@ -37,6 +34,12 @@ resource "aws_subnet" "tf_vpc_pvt" {
     Connectivity = "private"
   }
 }
+
+#internet gateway
+resource "aws_internet_gateway" "my_ig" {
+  vpc_id = aws_vpc.tf_vpc.id
+}
+
 #Route Table
 resource "aws_route_table" "tf_vpc_rt" {
   vpc_id = aws_vpc.tf_vpc.id
