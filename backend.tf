@@ -1,4 +1,5 @@
-//backend is used to store the tfstafe file at remote location so that everybody in the team can access it.
+//terraform backend to store the tfstate file in remote storage for collaborative environment.
+//also avoid simultaneous tf apply with help of backed locking with dynamodb_table
 terraform {
   backend "s3" {
     bucket = "<s3-bucket>"

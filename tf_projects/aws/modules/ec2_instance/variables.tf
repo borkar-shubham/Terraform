@@ -16,12 +16,11 @@ variable "instance_type" {
   type = string
 }
 
-variable "ports" {
-  type = list(number)
-}
-
 variable "key_pair_name" {
   type = string
+}
+
+variable "subnet_id" {  
 }
 
 # variable "access_key" {

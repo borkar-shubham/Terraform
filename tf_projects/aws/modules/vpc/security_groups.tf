@@ -1,6 +1,6 @@
 //creating security group
 resource "aws_security_group" "tf_vpc_sg" {
-  name        = "tf_vpc_sg"
+  name        = "(${var.vpc_name})_sg"
   description = "Allow public connectivity"
   vpc_id      = aws_vpc.tf_vpc.id
 
