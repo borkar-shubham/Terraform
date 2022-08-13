@@ -21,6 +21,6 @@ resource "aws_security_group" "tf_vpc_sg" {
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
-    description = "Allows all traffic"
+    description      = "Allows all traffic"
   }
 }

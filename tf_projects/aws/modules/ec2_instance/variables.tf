@@ -20,7 +20,8 @@ variable "key_pair_name" {
   type = string
 }
 
-variable "subnet_id" {  
+variable "subnet_id" {
+  type = string
 }
 
 # variable "access_key" {

@@ -24,7 +24,7 @@ resource "aws_subnet" "tf_vpc_pub_sub" {
   }
 }
 #Private Subnet
-resource "aws_subnet" "tf_vpc_pvt" {
+resource "aws_subnet" "tf_vpc_pvt_sub" {
   vpc_id                  = aws_vpc.tf_vpc.id
   cidr_block              = var.pvt_sub_cidr
   availability_zone       = "us-east-1b"
