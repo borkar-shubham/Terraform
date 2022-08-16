@@ -1,6 +1,6 @@
 //creating security group
 resource "aws_security_group" "tf_vpc_sg" {
-  name        = "(${var.vpc_name})_sg"
+  name        = "${var.vpc_name}_sg"
   description = "Allow public connectivity"
   vpc_id      = aws_vpc.tf_vpc.id
 
@@ -11,9 +11,15 @@ resource "aws_security_group" "tf_vpc_sg" {
       description = "Allows given traffic from VPC"
       from_port   = port.value
       to_port     = port.value
-      protocol    = "-1" #allows tcp, udp and other all protocols
+      protocol    = "tcp" #allows tcp, udp and other all protocols
       cidr_blocks = ["0.0.0.0/0"]
     }
+  }
+  ingress {    //Allowing all icmp protocols for pinging
+    from_port = -1
+    to_port = -1
+    protocol = "icmp"
+    cidr_blocks = ["0.0.0.0/0"]    
   }
   egress {
     from_port        = 0

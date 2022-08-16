@@ -1,0 +1,5 @@
+instance_name = "docker-server"
+instance_type = "t2.micro"
+image_name    = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"
+key_pair_name = "tf_key_pair"
+subnet_id = "subnet-0da66b24917933099"

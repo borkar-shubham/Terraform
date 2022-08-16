@@ -19,7 +19,7 @@ resource "aws_subnet" "tf_vpc_pub_sub" {
   #gateway_id = aws_internet_gateway.my_ig.id
 
   tags = {
-    Name         = "(${var.vpc_name}).pub.sub"
+    Name         = "${var.vpc_name}.pub.sub"
     Connectivity = "public"
   }
 }
@@ -31,7 +31,7 @@ resource "aws_subnet" "tf_vpc_pvt_sub" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name         = "(${var.vpc_name}).pvt.sub"
+    Name         = "${var.vpc_name}.pvt.sub"
     Connectivity = "private"
   }
 }

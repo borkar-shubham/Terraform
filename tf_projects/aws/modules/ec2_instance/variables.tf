@@ -1,6 +1,6 @@
 //Instance variables
 variable "instance_name" {
-  type = string
+  type    = string
 }
 
 # variable "image_id" {
@@ -9,20 +9,29 @@ variable "instance_name" {
 # }
 
 variable "image_name" {
-  type = string
+  type    = string
 }
 
 variable "instance_type" {
-  type = string
+  type    = string
+  default = "t2.micro"
 }
 
 variable "key_pair_name" {
-  type = string
+  type    = string
+  default = "tf_key_pair"
 }
 
 variable "subnet_id" {
-  type = string
+  type    = string
 }
+
+# variable "vpc_security_group_1" {
+#   type = string
+# }
+# variable "vpc_security_group_2" {
+#   type = string
+# }
 
 # variable "access_key" {
 #     type = string
