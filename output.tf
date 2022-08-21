@@ -3,11 +3,11 @@ output "user-name" {
 }
 
 output "user-age" {
-  value = "Your age is ${var.age}"
+  value = "${var.username}, Your age is ${var.age}"
 }
 
 output "fruits-name" {
-  value = "Your favorite fruit is ${var.fruits[1]}"
+  value = "${var.username}, Your favorite fruit is ${var.fruits[1]}"
 }
 
 output "userage-map" {

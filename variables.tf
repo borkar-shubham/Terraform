@@ -1,5 +1,6 @@
 variable "username" { // variable types --> string, number, bool, object({ATTR NAME> = <TYPE>...}), list(string), list(object), set(type), map(type), tupple
   type = string
+  # default = "sachin"
 }
 
 variable "age" {
@@ -32,7 +33,9 @@ variable "string-special-chars" {
 }
 
 // A variable with underscores.
-variable "input_with_underscores" {}
+# variable "input_with_underscores" {
+  
+# }
 
 // A variable with pipe in the description
 variable "input-with-pipe" {
@@ -102,9 +105,9 @@ variable "string_default_null" {
   default = null
 }
 
-variable "string_no_default" {
-  type = string
-}
+# variable "string_no_default" {
+#   type = string
+# }
 
 variable "number_default_zero" {
   type    = number

@@ -12,3 +12,5 @@ variable "app_tier_image_name" {}
 variable "ports" {
   type = list(number)
 }
+variable "key_pair_name" {  
+}

@@ -9,7 +9,7 @@ resource "aws_autoscaling_group" "asg" {
   force_delete              = true
   #placement_group           = aws_placement_group.test.id
   #launch_configuration      = aws_launch_configuration.foobar.name
-  vpc_zone_identifier       = ["data.aws_subnets.vpc-1_subnets"] #[aws_subnet.vpc-1_public.sub.id, aws_subnet.vpc-1_public.sub.id]
+  vpc_zone_identifier       = ["aws_subnet.tf_vpc_pub_sub_id","aws_subnet.tf_vpc_pvt_sub_id"] #["data.aws_subnets.vpc-1_subnets"]
 
   launch_template {
     id      = aws_launch_template.prod_lt.id
@@ -23,7 +23,7 @@ resource "aws_lb_target_group" "web_tg" {
   port = 80
   protocol = "HTTP"
   #target_type = "ip"    //used when target type is IP address
-  vpc_id = data.aws_vpc.vpc-1.id
+  vpc_id = var.vpc_id
 }
 
 //Attaching ASG with TG
@@ -39,12 +39,11 @@ resource "aws_lb" "prod_alb" {
   internal           = false
   load_balancer_type = "application"
   ip_address_type = "ipv4"
-  security_groups    = [data.aws_security_groups.vpc-1_sg.id]
-
+  security_groups    = ["aws_security_group.tf_vpc_sg_id"]
 #   subnet_mapping {
 #     subnet_id = ""
 #   }
-  subnets            = ["data.aws_subnets.vpc-1_subnets"]
+  subnets            = ["aws_subnet.tf_vpc_pvt_sub_id"]
   #subnets            = [for subnet in aws_subnet.public : subnet.id] //alternative to above
   enable_deletion_protection = false
   tags = {
