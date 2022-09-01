@@ -20,3 +20,4 @@ lb_name = ["web-tier-lb","app-tier-lb"]
 # vpc_id = module.vpc.tf_vpc_id
 
 //database variables
+db_identifier = "three-tier-db"

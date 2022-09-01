@@ -3,8 +3,8 @@ resource "aws_launch_template" "demo_lt" {
   image_id      = var.image_id
   instance_type = var.instance_type
   key_name      = var.key_pair_name
-
-  user_data = base64encode(data.template_file.user_data.rendered)
+  user_data = filebase64("${path.module}/user-data.sh")
+  # user_data = base64encode(data.template_file.user_data.rendered)
 
   # iam_instance_profile {
   #   name = "s3full_role_for_ec2"

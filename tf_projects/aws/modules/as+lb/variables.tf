@@ -11,6 +11,9 @@ variable "instance_type" {
 variable "key_pair_name" {
   default = "auto_scaling_key"
 }
+# variable "lt_user_data" {
+#   default = filebase64("${path.module}/user-data.sh") 
+# }
 # variable "security_groups" {
 #     default = ["sg-0cf81af39dfee1ba7"]
 

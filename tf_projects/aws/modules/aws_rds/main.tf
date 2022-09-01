@@ -1,5 +1,5 @@
 resource "aws_db_instance" "tf_db" {
-  identifier           = "tf-db"
+  identifier           = var.db_identifier
   allocated_storage    = 20
   engine               = var.db_engine
   engine_version       = var.engine_version
@@ -7,8 +7,8 @@ resource "aws_db_instance" "tf_db" {
   username             = var.username
   password             = var.password
   publicly_accessible  = false
-  availability_zone    = "us-east-1c"
-  # db_subnet_group_name = var.db_subnet_group
+  # availability_zone    = var.availability_zone
+  db_subnet_group_name = aws_db_subnet_group.default.name
   vpc_security_group_ids = var.db_security_group
   skip_final_snapshot  = true
 }
@@ -18,6 +18,6 @@ resource "aws_db_subnet_group" "default" {
   subnet_ids = var.subnet_ids
 
   tags = {
-    Name = "My DB subnet group"
+    Name = "db_subnet_group"
   }
 }

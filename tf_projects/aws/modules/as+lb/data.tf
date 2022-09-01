@@ -5,9 +5,9 @@
 #     }
 # }
 
-data "template_file" "user_data" {
-  template = file("${path.module}/user-data.sh")
-}
+# data "template_file" "user_data" {
+#   template = file("${path.module}/user-data.sh")
+# }
 
 # data "aws_subnets" "default_vpc_subnets" {
 #   filter {

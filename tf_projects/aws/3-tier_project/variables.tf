@@ -20,11 +20,6 @@ variable "lt_name" {
 variable "asg_name" {
   type = list(string)
 }
-# variable "vpc_zone" {
-#   type = list(any)
-# }
-# variable "vpc_id" {
-# }
 variable "tg_name" {
   type = list(string)
 }
@@ -34,11 +29,11 @@ variable "tg_port" {
 variable "lb_name" {
   type = list(string)
 }
-# variable "security_groups" {
-#   type = list(any)
-# }
 
-
+//database variables
+variable "db_identifier" {
+  type = string
+}
 
 
 
