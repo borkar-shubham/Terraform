@@ -12,5 +12,34 @@ variable "app_tier_image_name" {}
 variable "ports" {
   type = list(number)
 }
-variable "key_pair_name" {  
+
+//autoscaling & load_balancing variables
+variable "lt_name" {
+  type = list(string)
 }
+variable "asg_name" {
+  type = list(string)
+}
+# variable "vpc_zone" {
+#   type = list(any)
+# }
+# variable "vpc_id" {
+# }
+variable "tg_name" {
+  type = list(string)
+}
+variable "tg_port" {
+  type = list(number)
+}
+variable "lb_name" {
+  type = list(string)
+}
+# variable "security_groups" {
+#   type = list(any)
+# }
+
+
+
+
+
+

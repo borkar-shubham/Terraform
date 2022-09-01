@@ -3,7 +3,7 @@ resource "aws_instance" "server_1" {
   instance_type          = var.instance_type
   key_name               = var.key_pair_name
   subnet_id              = var.subnet_id
-  vpc_security_group_ids = ["aws_security_group.tf_vpc_sg_id"]
+  vpc_security_group_ids = var.vpc_security_group_ids
   user_data              = file("${path.module}/user_data.sh")
   tags = {
     Name = var.instance_name
@@ -35,4 +35,21 @@ resource "aws_key_pair" "tf_key_pair" {
 # resource "aws_eip_association" "eip_assoc" {
 #   instance_id   = aws_instance.server_1.id
 #   allocation_id = aws_eip.tf_eip.id
+# }
+
+# resource "aws_key_pair" "test" {
+#     key_name   = "${uuid()}"
+#     public_key = "${tls_private_key.t.public_key_openssh}"
+# }
+# provider "tls" {}
+# resource "tls_private_key" "t" {
+#     algorithm = "RSA"
+# }
+# provider "local" {}
+# resource "local_file" "key" {
+#     content  = "${tls_private_key.t.private_key_pem}"
+#     filename = "id_rsa"
+#     provisioner "local-exec" {
+#         command = "chmod 600 id_rsa"
+#     }
 # }

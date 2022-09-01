@@ -1,6 +1,6 @@
 variable "iam_user" {
-    type = string  
+  type = string
 }
 variable "policy_name" {
-    type = string
+  type = string
 }

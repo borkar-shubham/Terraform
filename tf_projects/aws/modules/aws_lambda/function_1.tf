@@ -1,5 +1,5 @@
 provider "aws" {
-region = "us-east-1"
+  region = "us-east-1"
 }
 
 resource "aws_iam_role" "s3_role_for_lambda" {
@@ -34,12 +34,12 @@ resource "aws_iam_role_policy_attachment" "s3_lambda_policy" {
 resource "aws_lambda_function" "mylambda" {
   function_name = "s3_lambda_function"
   role          = aws_iam_role.s3_role_for_lambda.arn
-  runtime = "nodejs16.x"
-  handler = "function.handler"
-  filename = "lambda_function.zip"
+  runtime       = "nodejs16.x"
+  handler       = "function.handler"
+  filename      = "lambda_function.zip"
 }
 data "archive_file" "lambda_zip" {
-type = "zip"
-source_file = "index.js"
-output_path = "lambda_function.zip"
+  type        = "zip"
+  source_file = "index.js"
+  output_path = "lambda_function.zip"
 }

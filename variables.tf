@@ -34,7 +34,7 @@ variable "string-special-chars" {
 
 // A variable with underscores.
 # variable "input_with_underscores" {
-  
+
 # }
 
 // A variable with pipe in the description

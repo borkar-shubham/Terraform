@@ -5,8 +5,8 @@
 # }
 //inline policies
 resource "aws_iam_user_policy" "user_policy" {
-  name = var.policy_name
-  user = aws_iam_user.iam_user.name
+  name   = var.policy_name
+  user   = aws_iam_user.iam_user.name
   policy = <<EOF
 {
   "Version": "2012-10-17",

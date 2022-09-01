@@ -1,8 +1,8 @@
-variable "map-var"{
-    type = map
-    default = {
-        name = "Monu"
-        age = "30"
-        height = "20"
-    }
+variable "map-var" {
+  type = map(any)
+  default = {
+    name   = "Monu"
+    age    = "30"
+    height = "20"
+  }
 }

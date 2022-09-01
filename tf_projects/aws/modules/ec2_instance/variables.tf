@@ -1,6 +1,6 @@
 //Instance variables
 variable "instance_name" {
-  type    = string
+  type = string
 }
 
 # variable "image_id" {
@@ -9,7 +9,7 @@ variable "instance_name" {
 # }
 
 variable "image_name" {
-  type    = string
+  type = string
 }
 
 variable "instance_type" {
@@ -23,15 +23,14 @@ variable "key_pair_name" {
 }
 
 variable "subnet_id" {
-  type    = string
+  type = string
 }
 
-# variable "vpc_security_group_1" {
-#   type = string
-# }
-# variable "vpc_security_group_2" {
-#   type = string
-# }
+variable "vpc_security_group_ids" {
+  type = list(any)
+  #default = ["aws_security_group.tf_vpc_sg_id"]
+
+}
 
 # variable "access_key" {
 #     type = string

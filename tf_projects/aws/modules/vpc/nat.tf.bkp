@@ -1,0 +1,28 @@
+resource "aws_eip" "tf_eip" {
+  vpc = true
+}
+
+resource "aws_nat_gateway" "tf_nat" {
+    allocation_id = aws_eip.tf_eip.id
+    subnet_id = aws_subnet.tf_vpc_pub_sub.id
+    depends_on = [aws_internet_gateway.tf_vpc_ig]
+    tags = {
+    Name = "tf_nat"
+  }
+}
+//secondary rt for nat
+resource "aws_route_table" "nat_rt" {
+  vpc_id = aws_vpc.tf_vpc.id
+  tags = {
+    Name = "nat_rt"
+  }
+  route {
+    cidr_block = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.tf_nat.id
+  }
+}
+//subnet association
+resource "aws_route_table_association" "nat_rt_association" {
+  subnet_id      = aws_subnet.tf_vpc_pvt_sub.id
+  route_table_id = aws_route_table.nat_rt.id
+}

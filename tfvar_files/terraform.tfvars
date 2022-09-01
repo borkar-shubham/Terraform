@@ -7,7 +7,7 @@
 # This lets you work with the easier way in case of there is large number of variables
 # Terraform will read this file and put the variables defined in the terraform.tfvars file into the command line.
 
-age=99
+age  = 99
 user = "Mark Zukerburg"
 
 // By default terraform will read this file with the file name as terraform.tfvars.

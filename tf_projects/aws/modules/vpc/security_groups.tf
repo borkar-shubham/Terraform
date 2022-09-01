@@ -15,11 +15,11 @@ resource "aws_security_group" "tf_vpc_sg" {
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
-  ingress {    //Allowing all icmp protocols for pinging
-    from_port = -1
-    to_port = -1
-    protocol = "icmp"
-    cidr_blocks = ["0.0.0.0/0"]    
+  ingress { //Allowing all icmp protocols for pinging
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
   egress {
     from_port        = 0
