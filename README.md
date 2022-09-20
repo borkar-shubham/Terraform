@@ -22,5 +22,5 @@ yum install terraform
 To install the required plugins and providers for the terraform code present in a current directory. \
 **b. terraform plan** \
 To dry run the planned architecture before applying on the actual environment. \
-**c. terraform apply \
+**c. terraform apply** \
 To apply the changes in actual environment. \
