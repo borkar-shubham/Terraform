@@ -20,6 +20,15 @@ variable "lt_name" {
 variable "asg_name" {
   type = list(string)
 }
+variable "min_size" {
+  type = list(number)
+}
+variable "max_size" {
+  type = list(number)
+}
+variable "desired_capacity" {
+  type = list(number)
+}
 variable "tg_name" {
   type = list(string)
 }

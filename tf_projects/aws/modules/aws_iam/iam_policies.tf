@@ -3,19 +3,20 @@
 #   user = aws_iam_user.iam_user.name
 #   policy = var.policy_s3read
 # }
+
 //inline policies
-resource "aws_iam_user_policy" "user_policy" {
+resource "aws_iam_user_policy" "inline_policy1" {
   name   = var.policy_name
-  user   = aws_iam_user.iam_user.name
+  user   = aws_iam_user.iam_user.name   // user attachment
   policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Effect": "Allow",
       "Action": [
         "ec2:Describe*"
       ],
-      "Effect": "Allow",
       "Resource": "*"
     },
     {

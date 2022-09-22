@@ -20,16 +20,16 @@ variable "username" {
   default = "admin"
 }
 variable "password" {
-  default = "admin123"
-  sensitive   = true
+  default   = "admin123"
+  sensitive = true
 }
 variable "db_security_group" {
-  type = list(any)
+  type    = list(any)
   default = ["sg-0cf81af39dfee1ba7"]
 }
 variable "subnet_ids" {
-  type = list(any)
-  default = ["subnet-030dd317fa436be81","subnet-0c2d67e1ceedbfe0d","subnet-082b7a3e0fda8c1bb"]
+  type    = list(any)
+  default = ["subnet-030dd317fa436be81", "subnet-0c2d67e1ceedbfe0d", "subnet-082b7a3e0fda8c1bb"]
 }
 # variable "availability_zone" {
 #   default = "us-east-1c"

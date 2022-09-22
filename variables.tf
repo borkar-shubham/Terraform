@@ -27,6 +27,14 @@ variable "userage-map" {
     suhani = 19
   }
 }
+variable "map-var" {
+  type = map(any)
+  default = {
+    name   = "Monu"
+    age    = "30"
+    height = "20"
+  }
+}
 
 variable "string-special-chars" {
   default = "\\.<>[]{}_-"

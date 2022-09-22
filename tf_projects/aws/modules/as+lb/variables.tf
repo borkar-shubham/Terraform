@@ -23,6 +23,15 @@ variable "key_pair_name" {
 variable "asg_name" {
   default = "demo_asg"
 }
+variable "min_size" {
+  default = "1"
+}
+variable "max_size" {
+  default = "3"
+}
+variable "desired_capacity" {
+  default = "2"
+}
 variable "vpc_zone" {
   type    = list(any)
   default = ["subnet-030dd317fa436be81", "subnet-0c2d67e1ceedbfe0d", "subnet-082b7a3e0fda8c1bb"]
