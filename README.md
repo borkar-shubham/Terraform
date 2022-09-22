@@ -18,9 +18,24 @@ sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/$release/h
 yum install terraform
 ```
 ## Terraform Workflow
-**a. terraform init** \
-To install the required plugins and providers for the terraform code present in a current directory. \
-**b. terraform plan** \
-To dry run the planned architecture before applying on the actual environment. \
-**c. terraform apply** \
-To apply the changes in actual environment. \
+**_Write --> Init --> Plan --> Apply --> Destroy_** \
+**a. Write** \
+Write or modify the code to create and change the infrastructure. \
+**b. Init** \
+Download and install the required plugins and providers according to the terraform code present in a current directory. \
+**c. Plan** \
+Review and dry run the planned architecture before applying on the actual environment. \
+**d. Apply** \
+Accept the changes and implement them in actual environment. \
+**e. Destroy** \
+Remove or destroy all the infrastructure that were made by the Terraform.
+## Terraform Commands
+These are the basic commands used in Terraform Administration.
+```
+terraform init 
+```
+It initiates a terraform plugin required by the infra code.
+```
+terraform plan
+```
+To show the changes that will be made to the cloud after apply
