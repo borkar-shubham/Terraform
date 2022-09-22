@@ -16,3 +16,7 @@ output "userage-map" {
 
 // To define variable in non interractive mode or directly in command line mode, do
 //terraform plan -var "username=shubham"  -var "age=28" --var 'users["user1", "user2", "user3"]'
+
+output "name" {
+  value = "Hello my name is ${var.user} and my age is ${var.age}"
+}

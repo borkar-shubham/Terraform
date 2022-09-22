@@ -36,6 +36,9 @@ variable "map-var" {
   }
 }
 
+variable "user" {
+  type = string
+}
 variable "string-special-chars" {
   default = "\\.<>[]{}_-"
 }
