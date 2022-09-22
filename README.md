@@ -38,4 +38,41 @@ It initiates a terraform plugin required by the infra code.
 ```
 terraform plan
 ```
-To show the changes that will be made to the cloud after apply
+To show the changes that will be made to the cloud after apply.
+```
+terraform validate
+```
+Check if the configurations made are proper or not.
+```
+terraform apply
+```
+Applies the configuration to the cloud.
+```
+terraform distroy
+```
+Distroy the configuration made in cloud
+```
+terraform refresh
+```
+Refresh the configuration in tfstate file with the actual environment.
+```
+terraform show
+```
+Shows the content of tfstate file
+```
+terraform output
+```
+Prints the configured output results.
+```
+terraform console
+```
+It takes into the terraform command line.
+```
+terraform fmt
+```
+It makes the terraform code aligned and indented.
+```
+terraform taint <resource-type> <resource-name>
+```
+It marks the resource as a taint and replaces it in next apply instead of updating it. \
+_Note: Terraform do not recomends the taint command, use "terraform apply --replace" instead._
