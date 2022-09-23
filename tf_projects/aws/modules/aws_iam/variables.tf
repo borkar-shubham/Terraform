@@ -3,12 +3,12 @@ variable "iam_user" {
   name = "tf_user"
 }
 variable "policy_name" {
-  type = string
+  type    = string
   default = "tf_policy"
 }
 
 //IAM role variables
 variable "" {
-  type = string
+  type    = string
   default = "tf_role"
 }

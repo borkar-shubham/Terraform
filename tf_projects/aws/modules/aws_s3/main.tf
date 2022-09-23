@@ -1,18 +1,56 @@
-variable "s3_buckets" {
-  type    = list(any)
-  default = ["prod-cl-bucket", "dev-cl-bucket", "test-cloud-bucket", "uat-cl-bucket", "uat-cloudblitz-bucket", "my-cl-bucket", "my-cloudblitz-bucket"]
-}
-
 resource "aws_s3_bucket" "tf-buckets" {
-  count  = length(var.s3_buckets) //count will be 3
+  count  = length(var.s3_buckets)
   bucket = var.s3_buckets[count.index]
   acl    = "private"
   # region        = "us-west-2"
   force_destroy = true
+  versioning {
+    enabled = false
+  }
 }
 # resource "aws_s3_bucket_acl" "s3_acl" {
 #     acl    = "private"
 #     count  = length(var.s3_buckets)
 #     bucket = "aws_s3_bucket.tf_buckets[count.index]"
-
 # }
+
+resource "aws_s3_bucket_policy" "tf-buckets-policy" {
+  bucket = aws_s3_bucket.tf-buckets.id
+  policy = data.aws_iam_policy_document.tf-buckets-policy-doc.json
+}
+
+//S3 static website configurations.......
+resource "aws_s3_object" "index_file" {
+  bucket       = var.s3_buckets[count.index] # OR aws_s3_bucket.tf-buckets.bucket
+  key          = "index.html"
+  source       = "./index.html"
+  content_type = "text/html"
+}
+
+resource "aws_s3_object" "error_file" {
+  bucket       = var.s3_buckets[count.index]
+  key          = "error.html"
+  source       = "./error.html"
+  content_type = "text/html"
+}
+
+resource "aws_s3_bucket_website_configuration" "my_static_website" {
+  bucket = var.s3_buckets[count.index]
+
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "error.html"
+  }
+
+  routing_rule {
+    condition {
+      key_prefix_equals = "docs/"
+    }
+    redirect {
+      replace_key_prefix_with = "documents/"
+    }
+  }
+}

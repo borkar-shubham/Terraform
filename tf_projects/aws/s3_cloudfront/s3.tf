@@ -39,6 +39,7 @@ data "aws_iam_policy_document" "mybucket_policy" {
   }
 }
 
+//S3 static website configurations....
 
 resource "aws_s3_object" "index_file" {
   bucket       = aws_s3_bucket.mybucket.bucket
