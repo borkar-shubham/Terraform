@@ -48,7 +48,7 @@ resource "aws_internet_gateway" "tf_vpc_ig" {
 //main route table
 resource "aws_default_route_table" "tf_vpc_pub_rt" {
   default_route_table_id = aws_vpc.tf_vpc.default_route_table_id
-  #vpc_id = aws_vpc.tf_vpc.id //no need when default rt
+  #vpc_id = aws_vpc.tf_vpc.id            //no need when default rt
   tags = {
     Name = "${var.vpc_name}_pub_rt"
   }
@@ -84,6 +84,7 @@ resource "aws_route_table_association" "pub_rt_association" {
 #     Name = "tf_vpc_nat"
 #   }
 # }
+
 //secondary rt for nat
 resource "aws_route_table" "tf_vpc_pvt_rt" {
   vpc_id = aws_vpc.tf_vpc.id
@@ -99,7 +100,6 @@ resource "aws_route_table" "tf_vpc_pvt_rt" {
 resource "aws_route_table_association" "pvt_rt_association" {
   count     = length(var.pub_sub_cidr)
   subnet_id = element(aws_subnet.tf_vpc_pvt_sub.*.id, count.index)
-  # subnet_id      = aws_subnet.tf_vpc_pvt_sub.id
   route_table_id = aws_route_table.tf_vpc_pvt_rt.id
 }
 

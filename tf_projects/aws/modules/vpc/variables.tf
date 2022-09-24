@@ -3,9 +3,6 @@ variable "vpc_name" {
   type    = string
   default = "tf_vpc"
 }
-# variable "vpc_id" {
-#   type = string
-# }
 variable "vpc_cidr" {
   type    = string
   default = "192.168.0.0/24"
