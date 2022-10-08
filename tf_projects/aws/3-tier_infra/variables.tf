@@ -9,11 +9,32 @@ variable "web_tier_image_name" {}
 variable "app_tier_image_name" {}
 
 //vpc variables
-variable "ports" {
-  type = list(number)
+variable "env" {
+  type = string
+}
+variable "namespace" {
+  type = string
+}
+variable "vpc_cidr" {
+  type = string
+}
+variable "pub_sub_cidr" {
+  type = list(string)
+}
+variable "pvt_sub_cidr" {
+  type = list(string)
+}
+variable "availability_zone" {
+  type = list(string)
+}
+variable "ingress" {
+  type = any
+}
+variable "tags" {
+  type = map(any)
 }
 
-//autoscaling & load_balancing variables
+//autoscaling & load_balancer variables
 variable "lt_name" {
   type = list(string)
 }
@@ -33,7 +54,7 @@ variable "tg_name" {
   type = list(string)
 }
 variable "tg_port" {
-  type = list(number)
+  type = list(string)
 }
 variable "lb_name" {
   type = list(string)
@@ -41,6 +62,21 @@ variable "lb_name" {
 
 //database variables
 variable "db_identifier" {
+  type = string
+}
+variable "db_engine" {
+  type = string
+}
+variable "engine_version" {
+  type = string
+}
+variable "instance_class" {
+  type = string
+}
+variable "username" {
+  type = string
+}
+variable "password" {
   type = string
 }
 

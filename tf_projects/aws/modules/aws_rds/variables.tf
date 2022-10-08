@@ -3,33 +3,35 @@ variable "db_identifier" {
   default = "tf-db"
 }
 variable "db_engine" {
-  type    = string
-  default = "mysql"
+  type = string
 }
-variable "engine_version" {
-  default = "8.0.28"
-}
-variable "instance_class" {
-  default = "db.t3.micro"
-}
-# variable "db_subnet_group" {
-#   type = list(string)
-#   default = ["subnet-030dd317fa436be81", "subnet-0c2d67e1ceedbfe0d"]
+# variable "engine_version" {
+#   type = string
 # }
+variable "instance_class" {
+  type = string
+}
 variable "username" {
-  default = "admin"
+  type = string
 }
 variable "password" {
-  default   = "admin123"
+  type      = string
   sensitive = true
 }
 variable "db_security_group" {
-  type    = list(any)
-  default = ["sg-0cf81af39dfee1ba7"]
+  type = list(string)
 }
 variable "subnet_ids" {
-  type    = list(any)
-  default = ["subnet-030dd317fa436be81", "subnet-0c2d67e1ceedbfe0d", "subnet-082b7a3e0fda8c1bb"]
+  type = list(string)
+}
+variable "tags" {
+  type = map(any)
+}
+variable "env" {
+  type = string
+}
+variable "namespace" {
+  type = string
 }
 # variable "availability_zone" {
 #   default = "us-east-1c"

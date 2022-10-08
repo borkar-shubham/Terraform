@@ -1,0 +1,3 @@
+{
+    "docker.certPath": "/var/lib/docker/"
+}

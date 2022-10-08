@@ -14,13 +14,31 @@ resource "aws_s3_bucket" "tf-buckets" {
 #     bucket = "aws_s3_bucket.tf_buckets[count.index]"
 # }
 
+data "aws_iam_policy_document" "tf-buckets-policy-doc" {
+  statement {
+    principals {
+      type        = "AWS"
+      identifiers = ["*"]
+    }
+    effect = "Allow"
+    actions = [
+      "s3:GetObject",
+      #"s3:ListBucket",
+    ]
+    resources = [
+      aws_s3_bucket.tf-buckets[count.index].arn,
+      "${aws_s3_bucket.tf-buckets.arn}/*"
+    ]
+  }
+}
 resource "aws_s3_bucket_policy" "tf-buckets-policy" {
-  bucket = aws_s3_bucket.tf-buckets.id
+  bucket = aws_s3_bucket.tf-buckets[count.index].id
   policy = data.aws_iam_policy_document.tf-buckets-policy-doc.json
 }
 
 //S3 static website configurations.......
 resource "aws_s3_object" "index_file" {
+  count        = length(var.s3_buckets)
   bucket       = var.s3_buckets[count.index] # OR aws_s3_bucket.tf-buckets.bucket
   key          = "index.html"
   source       = "./index.html"
@@ -28,6 +46,7 @@ resource "aws_s3_object" "index_file" {
 }
 
 resource "aws_s3_object" "error_file" {
+  count        = length(var.s3_buckets)
   bucket       = var.s3_buckets[count.index]
   key          = "error.html"
   source       = "./error.html"
@@ -35,6 +54,7 @@ resource "aws_s3_object" "error_file" {
 }
 
 resource "aws_s3_bucket_website_configuration" "my_static_website" {
+  count  = length(var.s3_buckets)
   bucket = var.s3_buckets[count.index]
 
   index_document {

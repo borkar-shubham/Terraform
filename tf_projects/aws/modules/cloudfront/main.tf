@@ -7,7 +7,7 @@ locals {
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name = var.domain_name
+    domain_name = var.domain_name #data.aws_s3_bucket.static_web_bucket.bucket_regional_domain_name
     origin_id   = local.s3_origin_id
 
     s3_origin_config {
@@ -39,10 +39,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   #     prefix          = "myprefix"
   #   }
 
-  tags = {
-    Environment = "development"
-    Name        = "CF_Distribution"
-  }
+  tags = merge({
+    Name = "CF_Distribution"
+  }, var.tags)
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]

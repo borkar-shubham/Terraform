@@ -1,0 +1,1 @@
+s3_buckets = ["prod-cl-bucket", "dev-cl-bucket", "test-cloud-bucket", "uat-cl-bucket"]

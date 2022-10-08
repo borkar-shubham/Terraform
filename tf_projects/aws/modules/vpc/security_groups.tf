@@ -1,18 +1,18 @@
 //creating security group
 resource "aws_security_group" "tf_vpc_sg" {
-  name        = "${var.vpc_name}_sg"
-  description = "Allow public connectivity"
+  name        = format("%s-%s-sg", var.namespace, var.env)
+  description = "Allow public and private TCP connectivity"
   vpc_id      = aws_vpc.tf_vpc.id
 
   dynamic "ingress" {
-    for_each = var.ports
-    iterator = port
+    for_each = var.ingress
+    # iterator = port
     content {
-      description = "Allows given traffic from VPC"
-      from_port   = port.value
-      to_port     = port.value
-      protocol    = "tcp" #allows tcp, udp and other all protocols
-      cidr_blocks = ["0.0.0.0/0"]
+      description = lookup(ingress.value, "description", null)
+      from_port   = lookup(ingress.value, "port", "22")
+      to_port     = lookup(ingress.value, "port", "22")
+      protocol    = lookup(ingress.value, "protocol", "tcp") #allows tcp, udp and other all protocols
+      cidr_blocks = lookup(ingress.value, "cidr_blocks", ["0.0.0.0/0"])
     }
   }
   ingress { //Allowing all icmp protocols for pinging
