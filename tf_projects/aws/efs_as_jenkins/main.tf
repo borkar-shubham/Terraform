@@ -11,7 +11,7 @@ module "vpc" {
 }
 
 module "efs" {
-  source           = "../modules/aws efs"
+  source           = "../modules/aws_efs"
   performance_mode = var.performance_mode
   throughput_mode  = var.throughput_mode
   encrypted        = var.encrypted
@@ -20,6 +20,9 @@ module "efs" {
   tags             = var.tags
   env              = var.env
   namespace        = var.namespace
+  depends_on = [
+    module.vpc
+  ]
 }
 
 module "as_lb" {
@@ -27,4 +30,7 @@ module "as_lb" {
   tags      = var.tags
   env       = var.env
   namespace = var.namespace
+  depends_on = [
+    module.efs
+  ]
 }

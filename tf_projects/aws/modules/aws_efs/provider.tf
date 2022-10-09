@@ -7,7 +7,7 @@ terraform {
   }
 }
 
-provider "aws" {
-  profile = "sachin"
-  region = "us-east-1"
-}
+# provider "aws" {
+#   profile = "sachin"
+#   region  = "us-east-1"
+# }

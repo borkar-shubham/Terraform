@@ -10,7 +10,7 @@ resource "aws_efs_file_system" "tf_efs" {
 }
 
 resource "aws_efs_mount_target" "mount_target" {
-  for_each        = var.subnet_id
+  for_each        = toset(var.subnet_id)
   subnet_id       = each.value
   file_system_id  = aws_efs_file_system.tf_efs.id
   security_groups = var.security_groups

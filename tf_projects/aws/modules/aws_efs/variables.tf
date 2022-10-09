@@ -25,10 +25,10 @@ variable "tags" {
   }
 }
 variable "namespace" {
-  type = string
+  type    = string
   default = "demo_efs"
 }
 variable "env" {
-  type = string
+  type    = string
   default = "test"
 }
