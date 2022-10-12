@@ -8,6 +8,7 @@ terraform show     : Shows the content of tfstate file
 terraform output   : Prints the configured output results.
 terraform console  : It takes into the terraform command line.
 terraform fmt      : It makes the terraform code aligned and indented.
+terraform distroy/apply -target <resource-address>  : It creates or deletes particular resources
 terraform workspace list : It show all the available workspaces.
 terraform workspace new <workspce-name> : It creates a new workspace and switched to it.
 terraform workspace show : It shows the current workspace.
