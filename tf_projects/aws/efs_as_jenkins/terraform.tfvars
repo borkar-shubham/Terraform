@@ -28,7 +28,6 @@ ingress = {
 tags = {
   vpc_name  = "tf_vpc"
   env       = "test"
-  bill_unit = "zshapr-102"
   mail      = "shubhamb@greamio.com"
   team      = "DevOps"
 }

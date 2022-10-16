@@ -24,19 +24,22 @@ variable "tags" {
   type = map(any)
 }
 
-//eks variables
-variable "cluster_name" {
+//loadbalancer variables
+variable "lb_type" {
   type = string
 }
-variable "node_group_name" {
+variable "security_groups" {
+  type = list(any)
+}
+variable "subnets" {
+  type = list(any)
+}
+variable "vpc_id" {
   type = string
 }
-variable "desired_size" {
-  type = number
+variable "tg" {
+  type = any
 }
-variable "max_size" {
-  type = number
-}
-variable "min_size" {
-  type = number
+variable "" {
+  type = string
 }

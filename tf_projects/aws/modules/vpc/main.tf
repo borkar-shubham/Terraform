@@ -1,7 +1,8 @@
 resource "aws_vpc" "tf_vpc" {
   cidr_block       = var.vpc_cidr
   instance_tenancy = "default"
-  #vpc_id = var.vpc_id
+  enable_dns_support = true
+  enable_dns_hostnames = true
 
   tags = merge({
     Name = format("%s-%s-vpc", var.namespace, var.env)
@@ -57,7 +58,7 @@ resource "aws_default_route_table" "tf_vpc_pub_rt" {
     gateway_id = aws_internet_gateway.tf_vpc_ig.id
   }
 }
-//alternate route entry
+//alternate way for route entry
 # resource "aws_route" "public_internet_gateway" {
 #   route_table_id         = aws_default_route_table.tf_vpc_pub_rt.id
 #   destination_cidr_block = "0.0.0.0/0"

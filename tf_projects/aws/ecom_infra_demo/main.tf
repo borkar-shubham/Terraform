@@ -1,4 +1,3 @@
-//VPC module
 module "tf_vpc" {
   source              = "../modules/vpc"
   env                 = var.env
@@ -11,8 +10,14 @@ module "tf_vpc" {
   tags                = var.tags
 }
 
-//eks module
-module "eks_cluster" {
-  source = "../modules/aws_eks"
-  subnet_ids = [module.tf_vpc.pub_sub_ids]
+module "lb" {
+  source          = "../modules/load_balancer"
+  env             = var.env
+  namespace       = var.namespace
+  lb_type         = var.lb_type
+  security_groups = [module.vpc.security_group_id]
+  subnets         = module.tf_vpc.pub_sub
+  vpc_id          = module.tf_vpc.vpc_id
+  tg              = var.tg
+  tags            = var.tags
 }

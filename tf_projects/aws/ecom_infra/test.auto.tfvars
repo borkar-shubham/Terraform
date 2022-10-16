@@ -1,52 +1,43 @@
 //vpc values
 env               = "test"
-namespace         = "ecom"
-vpc_cidr          = "192.168.0.0/24"
-pub_sub_cidr      = ["192.168.0.0/26", "192.168.0.64/26"]
-pvt_sub_cidr      = ["192.168.0.128/26", "192.168.0.192/26"]
+namespace         = "ecom_infra"
+vpc_cidr          = "10.0.0.0/20"
+pub_sub_cidr      = ["10.0.0.0/22"]
+pvt_sub_cidr      = ["10.0.4.0/22"]
 availability_zone = ["us-east-1a", "us-east-1b"]
 ingress = {
   ssh = {
     port = 22
   },
   http = {
-    description = "TLS from VPC"
+    description = "http connection"
     port        = 80
-
+  },
+  https = {
+    description = "Secure HTTPS from VPC"
+    port        = 443
+    cidr_blocks = ["172.25.0.0/20"]
   },
   tomcat = {
-    port        = 8080
-    cidr_blocks = ["172.25.0.0/20"]
+    port = 8080
+  },
+  efs = {
+    port = 2049
   }
 }
-
 tags = {
-  vpc_name  = "tf_vpc"
+  vpc_name  = "ecom_vpc"
   env       = "test"
-  bill_unit = "zshapr-102"
+  "kubernetes.io/clus/eter/eks" = "shared"
+  "kubernetes.io/rolelb" = 1
   mail      = "shubhamb@greamio.com"
   team      = "DevOps"
 }
 
-//load_balancer values
-lb_type = "application"
-tg = {
-  laptop = {
-    priority = "100"
-    port     = 8081
-    path     = "/laptop/*"
-    hc       = "/laptop/healthz"
-  },
-  mobile = {
-    priority = "200"
-    port     = 8082
-    path     = "/mobile/*"
-    hc       = "/mobile/healthz"
-  },
-  mens-cloths = {
-    priority = "300"
-    port     = 8083
-    path     = "/mens-cloths/*"
-    hc       = "/mens-cloths/healthz"
-  }
-}
+//eks values
+cluster_name = "test_eks_cluster"
+node_group_name = "test_node_group"
+desired_size = 1
+max_size = 1
+min_size = 1
+
