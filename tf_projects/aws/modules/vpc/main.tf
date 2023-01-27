@@ -103,4 +103,3 @@ resource "aws_route_table_association" "pvt_rt_association" {
   subnet_id      = element(aws_subnet.tf_vpc_pvt_sub.*.id, count.index) #OR aws_subnet.tf_vpc_pvt_sub.*.id
   route_table_id = aws_route_table.tf_vpc_pvt_rt.id
 }
-
