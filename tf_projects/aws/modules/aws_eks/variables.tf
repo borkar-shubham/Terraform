@@ -1,15 +1,15 @@
 variable "cluster_name" {
-  type = number
+  type = string
   default = "test_eks_cluster"
 }
 
 variable "node_group_name" {
-  type = number
+  type = string
   default = "test_node_group"
 }
 
 variable "subnet_ids" {
-  type    = list(number)
+  type    = list(string)
   default = ["subnet-09ee3c60a8c5c773c", "subnet-03989839a45cc5495"]
 }
 
