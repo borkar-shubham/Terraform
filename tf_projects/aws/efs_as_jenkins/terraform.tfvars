@@ -26,10 +26,10 @@ ingress = {
   }
 }
 tags = {
-  vpc_name  = "tf_vpc"
-  env       = "test"
-  mail      = "shubhamb@greamio.com"
-  team      = "DevOps"
+  vpc_name = "tf_vpc"
+  env      = "test"
+  mail     = "shubhamb@greamio.com"
+  team     = "DevOps"
 }
 
 //efs values

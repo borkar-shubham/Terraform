@@ -1,10 +1,10 @@
 variable "cluster_name" {
-  type = string
+  type    = string
   default = "test_eks_cluster"
 }
 
 variable "node_group_name" {
-  type = string
+  type    = string
   default = "test_node_group"
 }
 
@@ -14,16 +14,16 @@ variable "subnet_ids" {
 }
 
 variable "desired_size" {
-  type = number
+  type    = number
   default = 1
 }
 
 variable "max_size" {
-  type = number
+  type    = number
   default = 2
 }
 
 variable "min_size" {
-  type = number
+  type    = number
   default = 1
 }

@@ -26,18 +26,18 @@ ingress = {
   }
 }
 tags = {
-  vpc_name  = "ecom_vpc"
-  env       = "test"
+  vpc_name                      = "ecom_vpc"
+  env                           = "test"
   "kubernetes.io/clus/eter/eks" = "shared"
-  "kubernetes.io/rolelb" = 1
-  mail      = "shubhamb@greamio.com"
-  team      = "DevOps"
+  "kubernetes.io/rolelb"        = 1
+  mail                          = "shubhamb@greamio.com"
+  team                          = "DevOps"
 }
 
 //eks values
-cluster_name = "test_eks_cluster"
+cluster_name    = "test_eks_cluster"
 node_group_name = "test_node_group"
-desired_size = 1
-max_size = 1
-min_size = 1
+desired_size    = 1
+max_size        = 1
+min_size        = 1
 

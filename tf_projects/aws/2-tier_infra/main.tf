@@ -39,4 +39,7 @@ module "app_tier" {
   security_groups  = [module.vpc.security_group_id]
   tg_name          = var.tg_name
   tg_port          = var.tg_port
+  env              = var.env
+  namespace        = var.namespace
+  tags             = var.tags
 }

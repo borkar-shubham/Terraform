@@ -1,5 +1,5 @@
-env = "test"
-namespace = "2-tier-infra"
+env               = "test"
+namespace         = "2-tier-infra"
 vpc_cidr          = "10.0.0.0/20"
 pub_sub_cidr      = ["10.0.0.0/22", "10.0.4.0/22"]
 pvt_sub_cidr      = ["10.0.8.0/22", "10.0.12.0/22"]
@@ -33,7 +33,7 @@ tags = {
 }
 
 //DB values
-db_identifier = "2-tier-db"
+db_identifier  = "2-tier-db"
 db_engine      = "mysql"
 engine_version = "8.0.28"
 instance_class = "db.t3.micro"
@@ -42,10 +42,10 @@ password       = "admin123"
 
 //Application tier values
 lt_name          = "app_tier_lt"
+lb_name          = "app-tier-lb"
 asg_name         = "app-asg"
 min_size         = 1
 max_size         = 3
 desired_capacity = 2
 tg_name          = "app-tg"
 tg_port          = "8080"
-lb_name          = "app-tier-lb"

@@ -26,7 +26,7 @@ variable "tags" {
 
 //DB variables
 variable "db_identifier" {
-  type    = string
+  type = string
 }
 variable "db_engine" {
   type = string
@@ -49,6 +49,9 @@ variable "password" {
 variable "lt_name" {
   type = string
 }
+variable "lb_name" {
+  type = string
+}
 variable "asg_name" {
   type = string
 }
@@ -65,8 +68,5 @@ variable "tg_name" {
   type = string
 }
 variable "tg_port" {
-  type = string
-}
-variable "lb_name" {
   type = string
 }

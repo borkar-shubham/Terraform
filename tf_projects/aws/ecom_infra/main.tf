@@ -13,6 +13,6 @@ module "tf_vpc" {
 
 //eks module
 module "eks_cluster" {
-  source = "../modules/aws_eks"
+  source     = "../modules/aws_eks"
   subnet_ids = [module.tf_vpc.pub_sub_ids]
 }
