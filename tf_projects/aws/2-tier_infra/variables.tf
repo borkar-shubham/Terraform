@@ -31,6 +31,9 @@ variable "db_identifier" {
 variable "db_engine" {
   type = string
 }
+variable "engine_version" {
+  type = string
+}
 variable "instance_class" {
   type = string
 }
@@ -40,15 +43,6 @@ variable "username" {
 variable "password" {
   type      = string
   sensitive = true
-}
-variable "tags" {
-  type = map(any)
-}
-variable "env" {
-  type = string
-}
-variable "namespace" {
-  type = string
 }
 
 //application variables
