@@ -34,3 +34,5 @@ variable "ingress" {
 variable "tags" {
   type = map(any)
 }
+
+//as-lb variables

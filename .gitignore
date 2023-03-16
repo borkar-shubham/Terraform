@@ -4,6 +4,7 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
+.gitignore
 
 # Crash log files
 crash.log

@@ -2,7 +2,7 @@
 env               = "test"
 namespace         = "jenkins_project"
 vpc_cidr          = "10.0.0.0/20"
-pub_sub_cidr      = ["10.0.0.0/22"]
+pub_sub_cidr      = ["10.0.0.0/22", "10.0.8.0/22"]
 pvt_sub_cidr      = ["10.0.4.0/22"]
 availability_zone = ["us-east-1a", "us-east-1b"]
 ingress = {
