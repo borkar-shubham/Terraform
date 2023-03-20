@@ -27,16 +27,13 @@ variable "subnet_ids" {
 variable "tags" {
   type = map(any)
   default = {
-    "env" = "production"
   }
 }
 variable "env" {
   type = string
-  default = "test"
 }
 variable "namespace" {
   type = string
-  default = "my-project"
 }
 # variable "availability_zone" {
 #   default = "us-east-1c"

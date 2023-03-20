@@ -9,13 +9,13 @@ variable "vpc_cidr" {
   type = string
 }
 variable "pub_sub_cidr" {
-  type = string
+  type = list(string)
 }
 variable "pvt_sub_cidr" {
-  type = string
+  type = list(string)
 }
 variable "availability_zone" {
-  type = string
+  type = list(string)
 }
 variable "ingress" {
   type = any
@@ -31,9 +31,9 @@ variable "db_identifier" {
 variable "db_engine" {
   type = string
 }
-variable "engine_version" {
-  type = string
-}
+# variable "engine_version" {
+#   type = string
+# }
 variable "instance_class" {
   type = string
 }

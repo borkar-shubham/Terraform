@@ -1,5 +1,5 @@
 output "app_tier_lb_dns" {
-  value = module.app_tier.lb_dns
+  value = module.app_tier
 }
 
 output "db_endpoint" {

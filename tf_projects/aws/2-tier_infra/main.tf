@@ -16,13 +16,16 @@ module "db_tier" {
   source            = "../modules/aws_rds"
   db_identifier     = var.db_identifier
   db_engine         = var.db_engine
-  engine_version    = var.engine_version
+  # engine_version    = var.engine_version
   instance_class    = var.instance_class
   username          = var.username
   password          = var.password
   db_security_group = [module.vpc.security_group_id]
   subnet_ids        = module.vpc.pvt_sub_ids
   # availability_zone = "us-east-1b"
+  env              = var.env
+  namespace        = var.namespace
+  tags             = var.tags
 }
 
 //Application Tier

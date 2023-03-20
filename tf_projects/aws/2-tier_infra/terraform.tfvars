@@ -33,9 +33,9 @@ tags = {
 }
 
 //DB values
-db_identifier  = "2-tier-db"
+db_identifier  = "db-2-tier"
 db_engine      = "mysql"
-engine_version = "8.0.28"
+# engine_version = "8.0.28"
 instance_class = "db.t3.micro"
 username       = "admin"
 password       = "admin123"
