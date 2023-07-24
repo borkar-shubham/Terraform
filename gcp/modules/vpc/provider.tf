@@ -5,11 +5,15 @@ terraform {
       version = "4.74.0"
     }
   }
+  backend "gcs" {
+    bucket = ""
+    prefix = "terraform/tfstate"
+  }
 }
 
 provider "google" {
   project     = "gcp-ecom"
   region      = "us-central1"
   zone = "us-central1-a"
-  #credentials = file("~/Users/Shubham/Documents/DevOps/Private_Keys/gcp-ecom-6cc51a911ca6.json")
+  #credentials = "${file("../../../gcp-ecom-6cc51a911ca6.json")}"
 }
